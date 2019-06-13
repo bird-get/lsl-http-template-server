@@ -3,15 +3,46 @@ string index_page = "
 
 <html lang='en'>
   <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css' rel='stylesheet'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui'>
     <meta charset='utf-8'>
     <title>Example page</title>
     <meta name='description' content='Example page'>
     <meta name='author' content='John Doe'>
   </head>
   <body>
-    <p>Index page</p><br>
-    <a href='{{ url }}/example_page_1'>Example page 1</a><br>
-    <a href='{{ url }}/example_page_2'>Example page 2</a>
+    <div id='app'>
+      <v-app>
+        <v-content>
+          <v-container grid-list-md text-xs-center>
+            <v-layout row wrap>
+              <v-flex xs12>
+                <h2 class='display-3'>{{ message }}</h2><br>
+                <p class='subheading'>This is proof of concept using Vue and Vuetify on a LSL HTTP server.</p>
+              </v-flex>
+              <v-flex xs6>
+                <v-btn href='{{ url }}/example_page_1' color='primary'>Example page 1</v-btn>
+              </v-flex>
+              <v-flex xs6>
+                <v-btn href='{{ url }}/example_page_2' color='primary'>Example page 2</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-content>
+      </v-app>
+    </div>
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js'></script>
   </body>
 </html>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello world!'
+  }
+})
+</script>
 ";
